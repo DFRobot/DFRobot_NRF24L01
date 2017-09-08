@@ -48,19 +48,19 @@ void NRF24L01_Set_Speed(nRf24l01SpeedType Speed);
 void NRF24L01_Set_Power(nRf24l01PowerType Power);
 
 //Get the NRF24L01 communication mode, return mode (mode: MODE_TX || MODE_RX)
-nRf24l01ModeType NRF24L01_Get_Mode(void)
+nRf24l01ModeType NRF24L01_Get_Mode(void);
 
 //Set the send address (note that the address length should not exceed 5)
-void NRF24L01_Set_TxAddr(uint8_t *addr,uint8_t len)
+void NRF24L01_Set_TxAddr(uint8_t *addr,uint8_t len);
 
 //Set the receiving address (note that the address length should not exceed 5)
-void NRF24L01_Set_RxAddr(uint8_t *addr,uint8_t len)
+void NRF24L01_Set_RxAddr(uint8_t *addr,uint8_t len);
 
 //send data(Note: len should be less than or equal to 32)
 void send(uint8_t * value,uint8_t len);
 
 //Configure interrupt pins and callback functions
-void NRF24L01_Set_IRQ(uint8_t pin, void *callback)
+void NRF24L01_Set_IRQ(uint8_t pin, void *callback);
 
 //Test if chip is still sending.
 bool isSending();
@@ -69,7 +69,7 @@ bool isSending();
 bool dataReady();
 
 //Gets the received data and returns the length of the data
-uint8_t getData(uint8_t *data)
+uint8_t getData(uint8_t *data);
 
 ## History
 
