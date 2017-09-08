@@ -16,25 +16,31 @@ void setup(){
     delay(1000);
   }
   MyNrf.NRF24L01_Init();
-  MyNrf.NRF24L01_Set_Mode(MODE_TX);
-
+  MyNrf.NRF24L01_Set_Mode(MODE_RX);
 }
 
 void loop(){
   uint8_t data[32],len = 0;
-  while(Serial.available()>0){
-    data[len] = char(Serial.read());
-    len++;
-    if(len == 32)break;     /*Each send can only send up to 32 bytes*/
-  }
-  if(len>0){
-    MyNrf.send(data, len);
-    while(MyNrf.isSending()){
+  if(Serial.available()){
+    while(Serial.available())
+      Serial.read();
+    MyNrf.NRF24L01_Set_Mode(MODE_TX);
+    delay(50);
+    MyNrf.send((uint8_t *)"Hello Word!", 11);
+    while(MyNrf.isSending())
       delay(10);
+    MyNrf.NRF24L01_Set_Mode(MODE_RX);
+    delay(50);
+  }
+  if(!MyNrf.isSending() && MyNrf.dataReady()){ 
+    len = MyNrf.getData(data);
+    int i;
+    String Temp;
+    for (i = 0; i < len; i++) 
+    {
+      Temp += char(data[i]);
     }
-  }else{
-    delay(1000);
+    Serial.println(Temp);
   }
 }
-
 

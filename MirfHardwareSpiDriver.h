@@ -7,10 +7,10 @@
 
 class MirfHardwareSpiDriver : public MirfSpiDriver {
 
-	public: 
-		virtual uint8_t transfer(uint8_t data);
-		virtual void begin();
-		virtual void end();
+    public: 
+        virtual uint8_t transfer(uint8_t data);
+        virtual void begin();
+        virtual void end();
 };
 
 extern MirfHardwareSpiDriver MirfHardwareSpi;

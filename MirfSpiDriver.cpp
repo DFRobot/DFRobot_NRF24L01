@@ -1,11 +1,14 @@
 #include "MirfSpiDriver.h"
 
-uint8_t MirfSpiDriver::transfer(uint8_t data){
-	return 0;
+uint8_t MirfSpiDriver::transfer(uint8_t data)
+{
+    return 0;
 }
 
-void MirfSpiDriver::begin(){
+void MirfSpiDriver::begin()
+{
 }
 
-void MirfSpiDriver::end(){
+void MirfSpiDriver::end()
+{
 }
