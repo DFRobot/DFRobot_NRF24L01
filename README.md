@@ -70,7 +70,9 @@ bool dataReady();
 
 //Gets the received data and returns the length of the data
 uint8_t getData(uint8_t *data);
-
+	
+```
+	
 ## History
 
 - Sep 8, 2017 - Version 1.0.0 released.
